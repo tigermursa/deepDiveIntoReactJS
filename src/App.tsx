@@ -6,13 +6,13 @@ const App = () => {
   const parent = {
     hidden: { x: 0, y: 0 },
     visible: {
-      x: [50, 100],
-      y: [-50, -100],
+      x: [-100, 100],
       scale: 1,
       transition: {
         ease: "linear",
         duration: 1,
         repeat: Infinity,
+        repeatType: "reverse",
       },
     },
   };
@@ -28,7 +28,7 @@ const App = () => {
           whileHover={{
             scale: 1.1,
           }}
-          whileTap={{ rotate: 45 }}
+          whileTap={{ rotate: -40 }}
           drag
           dragConstraints={{ left: 50, right: 50, top: -150, bottom: 150 }}
           dragSnapToOrigin
