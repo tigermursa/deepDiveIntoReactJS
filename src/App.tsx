@@ -1,17 +1,9 @@
-import { useState } from "react";
-import UseStateExc from "./pages/UseStateExc";
+import React from 'react';
 
 const App = () => {
-  const [text, setText] = useState(" ");
-
-  const sayHello = () => {
-    setText("Hello0");
-  };
-
   return (
     <div>
-      <h1>{text}</h1>
-      <UseStateExc text={sayHello} />
+      <p>hi</p>
     </div>
   );
 };
