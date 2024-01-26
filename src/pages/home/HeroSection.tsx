@@ -28,7 +28,20 @@ const introChildren = {
   },
 };
 
-const tabAnimation =P
+const tabAnimation = {
+  initial: { y: 0 },
+  animate: {
+    y: 20,
+    transition: {
+      y: {
+        repeat: Infinity,
+        duration: 2,
+        repeatType: "reverse",
+        ease: "easeInOut",
+      },
+    },
+  },
+};
 
 const HeroSection = () => {
   return (
@@ -54,7 +67,12 @@ const HeroSection = () => {
           <Button>Book Service Now</Button>
         </motion.div>
       </motion.div>
-      <div className=" flex justify-center mt-10 w-3/4 lg:w-full mx-auto">
+      <motion.div
+        className=" flex justify-center mt-10 w-3/4 lg:w-full mx-auto"
+        variants={tabAnimation}
+        initial="initial"
+        animate="animate"
+      >
         <img
           className="-rotate-[35deg] h-[95%] object-contain"
           width={350}
@@ -62,7 +80,7 @@ const HeroSection = () => {
           src={tab}
           alt=""
         />
-      </div>
+      </motion.div>
     </Container>
   );
 };
