@@ -1,8 +1,19 @@
-import React from "react";
+import { cn } from "@/lib/utils";
+import { ReactNode } from "react";
 
-const Container = ({ children }) => {
+type TContainerProps = {
+  children: ReactNode;
+  className: string;
+};
+
+const Container = ({ children, className }: TContainerProps) => {
   return (
-    <div className="w-full h-full max-w-[1220px] px-[20px] mx-auto flex justify-between items-center bg-red-400 ">
+    <div
+      className={cn(
+        "w-full h-full max-w-[1220px] px-[20px] mx-auto  bg-red-400 ",
+        className
+      )}
+    >
       {children}
     </div>
   );
