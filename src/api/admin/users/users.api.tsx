@@ -3,3 +3,11 @@ export const getAllUsers = async () => {
     res.json()
   );
 };
+
+// import axios from "axios";
+
+// const getAllUsers = () => {
+//   return axios.get("https://jsonplaceholder.typicode.com/users");
+// };
+
+// export default getAllUsers;

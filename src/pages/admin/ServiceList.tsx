@@ -1,6 +1,8 @@
-import getAllUsers from "@/api/admin/users/users.api";
+
+
+import { getAllUsers } from "@/api/admin/users/users.api";
 import { useQuery } from "@tanstack/react-query";
-import React, { useEffect, useState } from "react";
+
 
 const ServiceList = () => {
   //   const [data, setData] = useState([]);
@@ -22,10 +24,13 @@ const ServiceList = () => {
       </h2>
     );
   }
+  if (isError) {
+    return <h2>Error fetching data</h2>;
+  }
 
   return (
     <div>
-      {data.map((user) => (
+      {data?.map((user) => (
         <div key={user.id} className="p-4 border">
           <h5>Person id:{user.id}</h5>
           <p>Name:{user.name}</p>
