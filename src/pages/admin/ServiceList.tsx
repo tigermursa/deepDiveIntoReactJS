@@ -1,4 +1,6 @@
 import { getAllUsers } from "@/api/admin/users/users.api";
+import useGetUsers from "@/api/admin/users/users.hook";
+
 import Container from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,7 +13,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useQuery } from "@tanstack/react-query";
 
 const ServiceList = () => {
   //   const [data, setData] = useState([]);
@@ -20,11 +21,9 @@ const ServiceList = () => {
   //       .then((res) => res.json())
   //       .then((data) => setData(data));
   //   }, []);
+  //console.log(await getAllUsers());
 
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ["services"],
-    queryFn: getAllUsers,
-  });
+  const { data, isLoading, isError } = useGetUsers();
 
   if (isLoading) {
     return (
@@ -60,7 +59,7 @@ const ServiceList = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data.map((user) => (
+          {data?.data.map((user) => (
             <TableRow key={user.id}>
               <TableCell className="font-medium">{user.id}</TableCell>
               <TableCell className="font-medium">{user.name}</TableCell>
