@@ -1,4 +1,5 @@
 import { getAllUsers } from "@/api/admin/users/users.api";
+import Container from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -47,11 +48,11 @@ const ServiceList = () => {
   // </div>
 
   return (
-    <>
+    <Container className="mt-20 p-0 rounded-2xl">
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">Id</TableHead>
+            <TableHead className="">Id</TableHead>
             <TableHead>Name</TableHead>
             <TableHead>Email</TableHead>
             <TableHead className="">Phone</TableHead>
@@ -74,12 +75,12 @@ const ServiceList = () => {
         </TableBody>
         <TableFooter>
           <TableRow>
-            <TableCell colSpan={3}>Total</TableCell>
+            <TableCell colSpan={4}>Total</TableCell>
             <TableCell className="text-right">$2,500.00</TableCell>
           </TableRow>
         </TableFooter>
       </Table>
-    </>
+    </Container>
   );
 };
 
