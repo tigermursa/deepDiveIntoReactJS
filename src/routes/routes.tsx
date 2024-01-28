@@ -7,7 +7,7 @@ import ServiceList from "@/pages/admin/ServiceList";
 import Home from "@/pages/home";
 import ServicesSection from "@/pages/home/ServicesSection";
 
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -33,15 +33,19 @@ const router = createBrowserRouter([
     element: <AdminLayout />,
     children: [
       {
-        path: "admin/dashboard",
+        index: true,
+        element: <Navigate to={"/admin/dashboard"} />,
+      },
+      {
+        path: "dashboard",
         element: <Dashboard />,
       },
       {
-        path: "admin/service-list",
+        path: "service-list",
         element: <ServiceList />,
       },
       {
-        path: "admin/add-services",
+        path: "add-services",
         element: <AddService />,
       },
     ],
