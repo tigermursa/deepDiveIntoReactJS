@@ -1,3 +1,4 @@
+import getAllUsers from "@/api/admin/users/users.api";
 import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 
@@ -8,12 +9,6 @@ const ServiceList = () => {
   //       .then((res) => res.json())
   //       .then((data) => setData(data));
   //   }, []);
-
-  const getAllUsers = async () => {
-    return await fetch("https://jsonplaceholder.typicode.com/users").then(
-      (res) => res.json()
-    );
-  };
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["services"],
