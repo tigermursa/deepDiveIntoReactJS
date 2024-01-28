@@ -1,12 +1,32 @@
+import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 
 const ServiceList = () => {
-//   const [data, setData] = useState([]);
-//   useEffect(() => {
-//     fetch("https://jsonplaceholder.typicode.com/users")
-//       .then((res) => res.json())
-//       .then((data) => setData(data));
-//   }, []);
+  //   const [data, setData] = useState([]);
+  //   useEffect(() => {
+  //     fetch("https://jsonplaceholder.typicode.com/users")
+  //       .then((res) => res.json())
+  //       .then((data) => setData(data));
+  //   }, []);
+
+  const getAllUsers = async () => {
+    return await fetch("https://jsonplaceholder.typicode.com/users").then(
+      (res) => res.json()
+    );
+  };
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["services"],
+    queryFn: getAllUsers,
+  });
+
+  if (isLoading) {
+    return (
+      <h2 className="flex justify-center items-center h-screen text-red-500 ">
+        Loading...
+      </h2>
+    );
+  }
 
   return (
     <div>
