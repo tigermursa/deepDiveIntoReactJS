@@ -57,7 +57,7 @@ const HeroSection = () => {
           >
             <span className="text-gray mb-10">Hey Nigga</span>
             <br></br>
-            <span className="">Buy Buy</span>
+            <span className="">Buy Buy TanStack</span>
           </motion.h1>
           <motion.p
             className=" text-dark-gray max-w-[50ch] mt-10 mb-5 text-lg"
